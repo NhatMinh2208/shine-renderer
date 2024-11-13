@@ -1,0 +1,1 @@
+-initilize nodes when allocate memory

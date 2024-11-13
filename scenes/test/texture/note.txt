@@ -1,0 +1,8 @@
+the abstraction is good but somehow so shitty
+i dont know how to say this
+cant easily implement a texture inside a bsdf
+and the mesh automatic generate a diffuse bsdf if none is assigned , i mean i gonna remove this soon
+
+
+so i have to explicit declare a bsdf for area light type (which so shitty i know)
+the rendering time is longer a bit, i don't know if just the scene or i do sth wrong af (maybe cuz the scene too difuse)

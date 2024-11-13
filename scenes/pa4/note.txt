@@ -1,0 +1,8 @@
+if(scene->rayIntersect(Ray3f(its.p, wo, Epsilon, (eRec.p - its.p).norm() - Epsilon)))
+
+-> add Epsilon for error bounding handle
+
+
+auto eta = m_intIOR / m_extIOR;
+
+--> somehow i made a mistake between this two and lead to incorrect result

@@ -1,0 +1,2 @@
+Color3f c = (phi * INV_PI * INV_PI / 4) * (cosTheta /dir.squaredNorm()); 
+--> the dir here must not been normalized

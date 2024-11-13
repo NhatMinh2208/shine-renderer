@@ -1,0 +1,24 @@
+- add depth to avoid memory crash
+- invalid bbox
+
+for (int i = 0; i < 8; i++) {
+            BoundingBox3f box = node->children[i]->bbox;     #not okay    
+}                                                            #access null pointer
+--->
+for (int i = 0; i < 8; i++) {
+            OctreeNode* child = node->children[i];
+            if(!child) continue;
+            BoundingBox3f box = child->bbox;
+}
+
+this took 15.3m to render T.T
+
+OctreeNode* Accel::build(int depth ,BoundingBox3f bbox, std::vector<uint32_t> triangles) const 
+--> remove const to assign a new value to the class property
+
+sizeof(OctreeNode) = 64 = 24 + 4 + 4 + 4 * 8 
+fuck! it took me 1 day for me to realize how stupid i am. My node struct have the information about pointer of next node, which
+will be freed after i re-allocated to a new twice-as-big array. It pretty obivious but i ... I should do this more often. (But
+gladly i know how to use MS debugger now, still,  a big L for me)
+
+gladly i reduce to 3.8m (i dont know is this true)
